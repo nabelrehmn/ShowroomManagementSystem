@@ -8,6 +8,7 @@ namespace ShowroomManagmentAPI.Data
         {
             
         }
+        public DbSet<Department> Departments { get; set; }
 
     }
 }
