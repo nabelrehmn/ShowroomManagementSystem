@@ -16,6 +16,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(x =>
 x.UseSqlServer(builder.Configuration.GetConnectionString("default")));
 
 builder.Services.AddScoped<IDepartment, DepartmentModel>();
+builder.Services.AddScoped<IRole, RoleModel>();
 
 var app = builder.Build();
 
