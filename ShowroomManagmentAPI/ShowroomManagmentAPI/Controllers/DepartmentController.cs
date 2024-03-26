@@ -40,8 +40,5 @@ namespace ShowroomManagmentAPI.Controllers
         {
            return JsonConvert.SerializeObject(await service.UpdateDepartment(departmentDTO));
         }
-
-
-
     }
 }
