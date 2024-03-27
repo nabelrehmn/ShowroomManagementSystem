@@ -17,6 +17,7 @@ x.UseSqlServer(builder.Configuration.GetConnectionString("default")));
 
 builder.Services.AddScoped<IDepartment, DepartmentModel>();
 builder.Services.AddScoped<IRole, RoleModel>();
+builder.Services.AddScoped<IEmployee, EmployeeModel>();
 
 var app = builder.Build();
 
