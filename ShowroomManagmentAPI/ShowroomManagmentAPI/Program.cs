@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using ShowroomManagmentAPI.Data;
 using ShowroomManagmentAPI.Models;
-using ShowroomManagmentAPI.Repositorys;
+using ShowroomManagmentAPI.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +18,7 @@ x.UseSqlServer(builder.Configuration.GetConnectionString("default")));
 builder.Services.AddScoped<IDepartment, DepartmentModel>();
 builder.Services.AddScoped<IRole, RoleModel>();
 builder.Services.AddScoped<IEmployee, EmployeeModel>();
+builder.Services.AddScoped<IVehicle, VehicleModel>();
 
 var app = builder.Build();
 
