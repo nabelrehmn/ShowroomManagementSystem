@@ -19,6 +19,7 @@ builder.Services.AddScoped<IDepartment, DepartmentModel>();
 builder.Services.AddScoped<IRole, RoleModel>();
 builder.Services.AddScoped<IEmployee, EmployeeModel>();
 builder.Services.AddScoped<IVehicle, VehicleModel>();
+builder.Services.AddScoped<ICustomer, CustomerModel>();
 
 var app = builder.Build();
 
