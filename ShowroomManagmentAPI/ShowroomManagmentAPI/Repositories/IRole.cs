@@ -1,6 +1,6 @@
 ﻿using ShowroomManagmentAPI.DTOs;
 
-namespace ShowroomManagmentAPI.Repositorys
+namespace ShowroomManagmentAPI.Repositories
 {
     public interface IRole
     {
@@ -9,7 +9,5 @@ namespace ShowroomManagmentAPI.Repositorys
         public Task<ResponseDTO> GetRoleById(int id);
         public Task<ResponseDTO> DeleteRole(int id);
         public Task<ResponseDTO> UpdateRole(RoleDTO roleDTO);
-
-       
     }
 }
