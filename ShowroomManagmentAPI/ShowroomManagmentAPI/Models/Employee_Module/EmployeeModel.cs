@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using ShowroomManagmentAPI.Data;
 using ShowroomManagmentAPI.DTOs;
-using ShowroomManagmentAPI.Repositorys;
+using ShowroomManagmentAPI.Repositories;
 
 namespace ShowroomManagmentAPI.Models
 {
@@ -39,7 +39,7 @@ namespace ShowroomManagmentAPI.Models
                 if(employeeDTO.ProfileImagePath != null)
                 {
                     var FileName = employeeDTO.ProfileImagePath.FileName;
-                    path = Path.Combine("Upload", webHostEnvironment.WebRootPath + FileName);
+                    path = Path.Combine("Uploads", webHostEnvironment.WebRootPath + FileName);
                     using (Stream stream = new FileStream(path, FileMode.Create))
                     {
                         await employeeDTO.ProfileImagePath.CopyToAsync(stream);
@@ -140,14 +140,13 @@ namespace ShowroomManagmentAPI.Models
                     {
                         var FileName = employeeDTO.ProfileImagePath.FileName;
                         path = FileName  = data.ProfileImagePath;
-                        pathc = Path.Combine("Upload",webHostEnvironment.WebRootPath + FileName);
+                        pathc = Path.Combine("Uploads",webHostEnvironment.WebRootPath + FileName);
                         using (Stream stream = new FileStream(path, FileMode.Create))
                         {
                             await employeeDTO.ProfileImagePath.CopyToAsync(stream);
                         }
-                }
                     }
-
+                }
 
                 var Employee = new Employee()
                 {
