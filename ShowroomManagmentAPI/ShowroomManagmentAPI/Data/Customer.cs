@@ -9,12 +9,12 @@ namespace ShowroomManagmentAPI.Data
         [Required]
         public string Name { get; set; }
         [Required]
-        public string Identification_Number { get; set; }
+        public string IdentificationNumber { get; set; }
         [Required]
         public string Email { get; set; }
         [Required]
         public string Address { get; set; }
         [Required]
-        public string Contect_Number { get; set; }
+        public string ContactNumber { get; set; }
     }
 }

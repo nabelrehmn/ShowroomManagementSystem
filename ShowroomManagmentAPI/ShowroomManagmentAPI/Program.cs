@@ -12,8 +12,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<ApplicationDbContext>(x =>
-x.UseSqlServer(builder.Configuration.GetConnectionString("default")));
+builder.Services.AddDbContext<ApplicationDbContext>(x => 
+                 x.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 
 builder.Services.AddScoped<IDepartment, DepartmentModel>();
 builder.Services.AddScoped<IRole, RoleModel>();
