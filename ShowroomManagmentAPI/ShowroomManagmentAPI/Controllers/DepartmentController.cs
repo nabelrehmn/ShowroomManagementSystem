@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using ShowroomManagmentAPI.DTOs;
-using ShowroomManagmentAPI.Repositorys;
+using ShowroomManagmentAPI.Repositories;
 
 namespace ShowroomManagmentAPI.Controllers
 {
@@ -40,8 +40,5 @@ namespace ShowroomManagmentAPI.Controllers
         {
            return JsonConvert.SerializeObject(await service.UpdateDepartment(departmentDTO));
         }
-
-
-
     }
 }

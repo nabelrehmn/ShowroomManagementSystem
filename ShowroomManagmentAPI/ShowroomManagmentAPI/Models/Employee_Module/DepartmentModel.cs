@@ -1,7 +1,7 @@
 ﻿    using Microsoft.EntityFrameworkCore;
 using ShowroomManagmentAPI.Data;
 using ShowroomManagmentAPI.DTOs;
-using ShowroomManagmentAPI.Repositorys;
+using ShowroomManagmentAPI.Repositories;
 
 namespace ShowroomManagmentAPI.Models
 {

@@ -1,6 +1,6 @@
 ﻿using ShowroomManagmentAPI.DTOs;
 
-namespace ShowroomManagmentAPI.Repositorys
+namespace ShowroomManagmentAPI.Repositories
 {
     public interface IDepartment
     {
