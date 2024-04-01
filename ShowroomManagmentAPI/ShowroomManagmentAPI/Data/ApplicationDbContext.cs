@@ -12,5 +12,12 @@ namespace ShowroomManagmentAPI.Data
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Vehicle> Vehicles {  get; set; } 
         public DbSet<Customer> Customers { get; set; } 
+        public DbSet<Campaign> Campaign { get; set; } 
+        public DbSet<Promotion> Promotions { get; set; }
+        public DbSet<Channel> Channels { get; set; }
+        public DbSet<CustomerSegment> CustomerSegments { get; set; }
+
+        public DbSet<CampaignChannelMapping> CampaignChannelMappings { get; set; }
+        public DbSet<CampaignCustomerSegmentMapping> CampaignCustomerSegmentMappings { get; set; }
     }
 }
