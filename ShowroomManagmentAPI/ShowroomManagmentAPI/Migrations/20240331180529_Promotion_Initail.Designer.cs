@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ShowroomManagmentAPI.Data;
 
@@ -11,9 +12,10 @@ using ShowroomManagmentAPI.Data;
 namespace ShowroomManagmentAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240331180529_Promotion_Initail")]
+    partial class Promotion_Initail
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -50,74 +52,6 @@ namespace ShowroomManagmentAPI.Migrations
                     b.ToTable("Campaign");
                 });
 
-            modelBuilder.Entity("ShowroomManagmentAPI.Data.CampaignChannelMapping", b =>
-                {
-                    b.Property<int>("MappingID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MappingID"), 1L, 1);
-
-                    b.Property<int>("FKCampaignID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("FKChannelID")
-                        .HasColumnType("int");
-
-                    b.HasKey("MappingID");
-
-                    b.HasIndex("FKCampaignID");
-
-                    b.HasIndex("FKChannelID");
-
-                    b.ToTable("CampaignChannelMappings");
-                });
-
-            modelBuilder.Entity("ShowroomManagmentAPI.Data.CampaignCustomerSegmentMapping", b =>
-                {
-                    b.Property<int>("MappingCustomerSegmentID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MappingCustomerSegmentID"), 1L, 1);
-
-                    b.Property<int>("FKCampaignID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("FKSegmentID")
-                        .HasColumnType("int");
-
-                    b.HasKey("MappingCustomerSegmentID");
-
-                    b.HasIndex("FKCampaignID");
-
-                    b.HasIndex("FKSegmentID");
-
-                    b.ToTable("CampaignCustomerSegmentMappings");
-                });
-
-            modelBuilder.Entity("ShowroomManagmentAPI.Data.Channel", b =>
-                {
-                    b.Property<int>("ChannelID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ChannelID"), 1L, 1);
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.HasKey("ChannelID");
-
-                    b.ToTable("Channels");
-                });
-
             modelBuilder.Entity("ShowroomManagmentAPI.Data.Customer", b =>
                 {
                     b.Property<int>("CustomerId")
@@ -149,28 +83,6 @@ namespace ShowroomManagmentAPI.Migrations
                     b.HasKey("CustomerId");
 
                     b.ToTable("Customers");
-                });
-
-            modelBuilder.Entity("ShowroomManagmentAPI.Data.CustomerSegment", b =>
-                {
-                    b.Property<int>("SegmentID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SegmentID"), 1L, 1);
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.HasKey("SegmentID");
-
-                    b.ToTable("CustomerSegments");
                 });
 
             modelBuilder.Entity("ShowroomManagmentAPI.Data.Department", b =>
@@ -256,8 +168,8 @@ namespace ShowroomManagmentAPI.Migrations
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("IsActive")
-                        .HasColumnType("int");
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -344,44 +256,6 @@ namespace ShowroomManagmentAPI.Migrations
                     b.HasKey("VehicleId");
 
                     b.ToTable("Vehicles");
-                });
-
-            modelBuilder.Entity("ShowroomManagmentAPI.Data.CampaignChannelMapping", b =>
-                {
-                    b.HasOne("ShowroomManagmentAPI.Data.Campaign", "Campaign")
-                        .WithMany()
-                        .HasForeignKey("FKCampaignID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ShowroomManagmentAPI.Data.Channel", "Channel")
-                        .WithMany()
-                        .HasForeignKey("FKChannelID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Campaign");
-
-                    b.Navigation("Channel");
-                });
-
-            modelBuilder.Entity("ShowroomManagmentAPI.Data.CampaignCustomerSegmentMapping", b =>
-                {
-                    b.HasOne("ShowroomManagmentAPI.Data.Campaign", "Campaign")
-                        .WithMany()
-                        .HasForeignKey("FKCampaignID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ShowroomManagmentAPI.Data.CustomerSegment", "CustomerSegment")
-                        .WithMany()
-                        .HasForeignKey("FKSegmentID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Campaign");
-
-                    b.Navigation("CustomerSegment");
                 });
 
             modelBuilder.Entity("ShowroomManagmentAPI.Data.Employee", b =>
