@@ -148,8 +148,8 @@ namespace ShowroomManagmentAPI.Models
                     {
                         var FileName = VehicleDTO.ProfileImagePath.FileName;
                         var path = FileName = Data.ProfileImagePath;
-                        var pathc = Path.Combine("Uploads",WebHostEnvironment.WebRootPath,FileName);
-                        using (Stream stream = new FileStream(path,FileMode.Create))
+                        var pathc = Path.Combine("Uploads",WebHostEnvironment.WebRootPath+FileName);
+                        using (Stream stream = new FileStream(pathc,FileMode.Create))
                         {
                             await VehicleDTO.ProfileImagePath.CopyToAsync(stream);
                         }
